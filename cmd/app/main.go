@@ -15,7 +15,7 @@ import (
 	"github.com/nbycomp/neonephos-opg-ewbi-api/api/federation/server"
 	"github.com/nbycomp/neonephos-opg-ewbi-api/cmd/app/config"
 	"github.com/nbycomp/neonephos-opg-ewbi-api/pkg/handler"
-	opgv1beta1 "nby.one/opg-ewbi/api/v1beta1"
+	opgv1beta1 "github.com/nbycomp/neonephos-opg-ewbi-operator/api/v1beta1"
 )
 
 func main() {

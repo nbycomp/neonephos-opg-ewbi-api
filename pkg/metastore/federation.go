@@ -4,7 +4,7 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
 	"github.com/nbycomp/neonephos-opg-ewbi-api/api/federation/models"
-	opgv1beta1 "nby.one/opg-ewbi/api/v1beta1"
+	opgv1beta1 "github.com/nbycomp/neonephos-opg-ewbi-operator/api/v1beta1"
 )
 
 type Federation struct {

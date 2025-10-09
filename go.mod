@@ -15,12 +15,12 @@ require (
 	github.com/icza/gog v0.0.0-20241010132004-5da24f18211d
 	github.com/kelseyhightower/envconfig v1.4.0
 	github.com/labstack/echo/v4 v4.11.4
+	github.com/nbycomp/neonephos-opg-ewbi-operator v0.0.0-20251009094950-5f7e1a27ae15
 	github.com/oapi-codegen/runtime v1.1.1
 	github.com/pkg/errors v0.9.1
 	github.com/sirupsen/logrus v1.9.3
 	github.com/stretchr/testify v1.9.0
 	k8s.io/apimachinery v0.32.0
-	nby.one/opg-ewbi v0.0.6-0.20250417132356-3e348303afaf
 	sigs.k8s.io/controller-runtime v0.19.1
 )
 

@@ -7,7 +7,7 @@ import (
 	log "github.com/sirupsen/logrus"
 	"k8s.io/apimachinery/pkg/labels"
 
-	opgv1beta1 "nby.one/opg-ewbi/api/v1beta1"
+	opgv1beta1 "github.com/nbycomp/neonephos-opg-ewbi-operator/api/v1beta1"
 )
 
 type ClientCredentials struct {
