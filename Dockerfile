@@ -1,5 +1,5 @@
 # syntax = docker/dockerfile:1
-FROM registry.nearbycomputing.com/nbycomp/base/golang:1.24.6-alpine as builder
+FROM golang:1.24.6-alpine AS builder
 
 # install CA certificates to copy into our final image
 # these are required to validate TLS connections e.g. to HTTPS servers
@@ -20,7 +20,7 @@ COPY . ./
 RUN --mount=type=cache,target=/root/.cache/go-build \
     go build -o ./app ./cmd/app/
 
-FROM registry.nearbycomputing.com/external/gcr.io/distroless/static:nonroot
+FROM gcr.io/distroless/static:nonroot
 WORKDIR /
 COPY --from=builder /workspace/app ./
 
