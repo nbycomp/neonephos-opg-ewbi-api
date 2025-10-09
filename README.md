@@ -2,6 +2,7 @@
 
 A Go-based East-West Bound Interface API implementation.
 Work in bundle together with Nearby Computing OPG EWBI Operator
+You can find the helm chart to deploy both services in [OPG EWBI Operator](github.com/nbycomp/opg-ewbi-operator)
 
 ## ⚠️ Under development 
 
@@ -18,6 +19,14 @@ This repository contains:
 - Docker and Docker Compose
 
 ## Build images
+
+This file points to a registry image. Please modify according to your needs
+Especially
+
+```bash
+image: registry.example.com/nearbyone/ewbi-opg-federation-api:neonephos
+platform: linux/arm64
+```
 
 ```bash
 docker-compose build federation
