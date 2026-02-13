@@ -21,6 +21,22 @@ services:
     ports:
       - "8080:8080"
 
+  federation-debug:
+    image: ghcr.io/neonephos-katalis/opg-ewbi-api:neonephos-debug
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      target: debug
+      secrets:
+        - netrc
+    env_file:
+      - .env
+    restart: on-failure
+    platform: linux/arm64
+    # platform: linux/amd64
+    ports:
+      - "8080:8080"
+
   apigen:
     build:
       context: ./

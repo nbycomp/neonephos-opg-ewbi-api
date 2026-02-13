@@ -4,7 +4,7 @@ A Go-based East-West Bound Interface API implementation.
 Work in bundle together with Nearby Computing OPG EWBI Operator
 You can find the helm chart to deploy both services in [OPG EWBI Operator](github.com/nbycomp/opg-ewbi-operator)
 
-## ⚠️ Under development 
+## ⚠️ Under development
 
 **IMPORTANT**: This solution is a work in progress
 
@@ -28,9 +28,33 @@ image: registry.example.com/nearbyone/ewbi-opg-federation-api:neonephos
 platform: linux/arm64
 ```
 
+### Build standard image
+
+Using docker-compose:
 ```bash
 docker-compose build federation
 ```
+
+Using Docker directly:
+```bash
+docker build --platform=linux/arm64 -t ghcr.io/neonephos-katalis/opg-ewbi-api:neonephos --secret id=netrc,src=$HOME/.netrc .
+```
+
+### Build debug image
+
+**For debugging purposes**, you can build a debug image with bash and troubleshooting tools (curl, wget, tcpdump, dig, etc.):
+
+Using docker-compose to only build:
+```bash
+docker-compose build federation-debug
+```
+
+Using Docker directly:
+```bash
+docker build --target debug --platform=linux/arm64 -t ghcr.io/neonephos-katalis/opg-ewbi-api:neonephos-debug --secret id=netrc,src=$HOME/.netrc .
+```
+
+## Regenerate API code
 
 To regenerate API code after specification changes:
 
