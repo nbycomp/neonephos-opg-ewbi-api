@@ -44,13 +44,9 @@ func (f *Federation) updatek8sCustomResource(fed *opgv1beta1.Federation) *opgv1b
 }
 
 func federationFromK8sCustomResource(fed *opgv1beta1.Federation) (*Federation, error) {
-	offeredZones := []models.ZoneDetails{}
-	for _, z := range fed.Spec.OfferedAvailabilityZones {
-		offeredZones = append(offeredZones, models.ZoneDetails{
-			ZoneId:           z.ZoneId,
-			Geolocation:      z.Geolocation,
-			GeographyDetails: z.GeographyDetails,
-		})
+	offeredZones := make([]models.ZoneDetails, len(fed.Spec.OfferedAvailabilityZones))
+	for i, z := range fed.Spec.OfferedAvailabilityZones {
+		offeredZones[i].ZoneId = z
 	}
 
 	return &Federation{
