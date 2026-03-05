@@ -20,6 +20,19 @@ COPY . ./
 RUN --mount=type=cache,target=/root/.cache/go-build \
     go build -o ./app ./cmd/app/
 
+# Debug image with netshoot for troubleshooting
+# Includes bash, curl, wget, tcpdump, and many other debugging tools
+FROM nicolaka/netshoot:v0.15 AS debug
+WORKDIR /
+COPY --from=builder /workspace/app ./
+
+# copy CA certs
+COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
+
+USER 65532:65532
+
+ENTRYPOINT ["./app"]
+
 FROM gcr.io/distroless/static:nonroot
 WORKDIR /
 COPY --from=builder /workspace/app ./
